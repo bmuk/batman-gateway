@@ -1,0 +1,30 @@
+config 'zone'
+    option 'name' 'mesh'
+    option 'network' 'bat0'
+    option 'input' 'REJECT'
+    option 'forward' 'REJECT'
+    option 'output' 'ACCEPT'
+  
+  # Allow Guest -> Internet
+  config 'forwarding'
+    option 'src' 'mesh'
+    option 'dest' 'lan'
+   
+  # Allow DNS Guest -> Router
+  # Client DNS queries ordinate from dynamic UDP ports (>1023) 
+  config 'rule'
+    option 'name' 'Allow DNS Queries'
+    option 'src' 'mesh'
+    option 'dest_port' '53'
+    option 'proto' 'tcpudp'
+    option 'target' 'ACCEPT'
+  
+  # Allow DHCP Guest -> Router
+  # DHCP communication uses UDP ports 67-68
+  config 'rule'
+    option 'name' 'Allow DHCP request'
+    option 'src' 'mesh'
+    option 'src_port' '67-68'
+    option 'dest_port' '67-68'
+    option 'proto' 'udp'
+    option 'target' 'ACCEPT'
