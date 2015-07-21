@@ -20,5 +20,5 @@ config wifi-iface accesspoint0
         option ifname wifiap0
         option network mesh_bridge
         option mode ap
-        option ssid 'meshAP-bulbasaur'
+        option ssid 'meshAP'
         option encryption none
