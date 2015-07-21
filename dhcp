@@ -1,7 +1,12 @@
-config 'dhcp' 'bat0'
-	      option 'interface'   'bat0'
-	      option 'start'       '100'
-        option 'limit'	     '150'
-        option 'leasetime'   '12h'
-        option ra server
-        option dhcpv6 server
+config dhcp 'mesh_bridge'
+        option interface 'mesh_bridge'
+        option start '100'
+        option limit '150'
+        option leasetime '12h'
+        option ra 'server'
+        option dhcpv6 'server'
+
+config odhcpd 'odhcpd'
+        option maindhcp '0'
+        option leasefile '/tmp/hosts/odhcpd'
+        option leasetrigger '/usr/sbin/odhcpd-update'
