@@ -1,0 +1,6 @@
+config 'alfred' 'alfred'
+        option interface 'br-mesh_bridge'
+        option mode 'master'
+        option batmanif 'adhoc0'
+        option start_vis '1'
+        option run_facters '1'
